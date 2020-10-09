@@ -849,7 +849,7 @@ def generate_md5_checksum(local_path):
         return hashlib.md5(data).hexdigest()
 
 
-def yolo2onnx(model_file):
+def yolo2onnx(model_file, category_num=80):
     """Run the DarkNet-to-ONNX conversion for YOLO (v3 or v4)."""
     if sys.version_info[0] < 3:
         raise SystemExit('ERROR: This modified version of yolov3_to_onnx.py '
@@ -876,8 +876,8 @@ def yolo2onnx(model_file):
         raise SystemExit('ERROR: file (%s) not found!' % weights_file_path)
     output_file_path = '%s.onnx' % model_file
 
-    if not verify_classes(model_file, 80):
-        raise SystemExit('ERROR: bad category_num (%d)' % 80)
+    if not verify_classes(model_file, category_num):
+        raise SystemExit('ERROR: bad category_num (%d)' % category_num)
 
     # Derive yolo input width/height from model name.
     # For example, "yolov4-416x256" -> width=416, height=256
