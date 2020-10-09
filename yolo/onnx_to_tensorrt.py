@@ -117,7 +117,7 @@ def main():
               'number (e.g. 288, 416, 608) or WxH (e.g. 416x256)'))
     args = parser.parse_args()
 
-    yolo2onnx(args.model)
+    yolo2onnx(args.model, args.category_num)
     onnx_file_path = '%s.onnx' % args.model
     if not os.path.isfile(onnx_file_path):
         raise SystemExit('ERROR: file (%s) not found!  You might want to run yolo_to_onnx.py first to generate it.' % onnx_file_path)
