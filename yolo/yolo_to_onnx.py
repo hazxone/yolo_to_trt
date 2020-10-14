@@ -911,9 +911,9 @@ def yolo2onnx(model_file, category_num=80):
             output_tensor_dims['101_convolutional'] = [c, h // 16, w // 16]
             output_tensor_dims['113_convolutional'] = [c, h //  8, w //  8]
         elif 'face' in model_file:
-            output_tensor_dims['082_convolutional'] = [18, d // 32, d // 32]
-            output_tensor_dims['094_convolutional'] = [18, d // 16, d // 16]
-            output_tensor_dims['106_convolutional'] = [18, d //  8, d //  8]
+            output_tensor_dims['082_convolutional'] = [18, h // 32, w // 32]
+            output_tensor_dims['094_convolutional'] = [18, h // 16, w // 16]
+            output_tensor_dims['106_convolutional'] = [18, h //  8, w //  8]
         else:
             output_tensor_dims['082_convolutional'] = [c, h // 32, w // 32]
             output_tensor_dims['094_convolutional'] = [c, h // 16, w // 16]
