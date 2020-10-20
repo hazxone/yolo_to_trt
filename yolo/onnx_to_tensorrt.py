@@ -90,9 +90,9 @@ def build_engine(onnx_file_path, category_num=80, verbose=False):
             network.get_input(0).shape = shape
 
         print('Adding yolo_layer plugins...')
-        model_name = onnx_file_path[:-5]
-        network = add_yolo_plugins(
-            network, model_name, category_num, TRT_LOGGER)
+        # model_name = onnx_file_path[:-5]
+        # network = add_yolo_plugins(
+        #     network, model_name, category_num, TRT_LOGGER)
 
         print('Building an engine.  This would take a while...')
         print('(Use "--verbose" to enable verbose logging.)')
